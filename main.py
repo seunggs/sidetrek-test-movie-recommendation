@@ -46,7 +46,6 @@ def process_data(df: pd.DataFrame, datarange: int, yearrange: int) -> Tuple[pd.D
 
 df, title_df_list = process_data(df,10000, 1995)
 
-
 def vectorize_data(df: pd.DataFrame, vectorizer: TfidfVectorizer) -> scipy.sparse.csr.csr_matrix:
     merged_info = df["genres"] + df["overview"] + df["tagline"]
     return vectorizer.fit_transform(merged_info)
@@ -88,4 +87,4 @@ def recommend_movies(df: pd.DataFrame, numb: int, vectorized_data: scipy.sparse.
         print("---------------\n")
     return recommendation
 
-recommend_movies(df, 15, vectorized_data, title_df_list)
+recommend_movies(df, 10, vectorized_data, title_df_list)
